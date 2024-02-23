@@ -32,96 +32,33 @@
 </div>
 <p class="margin">   </p>
 
-<h4>Assignment 1: Press-Fit Construction</h4>
+<h4>Assignment 1: Create a Box</h4>
 
-For this assignment, I knew I wanted to do something geometric, both because I
-like geometric designs and because I knew it would work well with the "can be
-assembled in multiple ways" aspect. I know that hexagons pattern well, so I
-thought to make something with those. Ideally, my kit would be useful for
-something practical, I thought, and so the vague concept in my head was a phone
-stand, using a series of hexagonal backing pieces for the phone to rest on. I
-quickly realized that I'd need multiple pieces for this in order to connect the
-hexagons how I wanted, so I drafted up three pieces in Fusion: the main hexagonal
-tiles, a smaller triangular piece I thought could be used for the base, and a
-tiny E-shaped connector that could be used to stack tiles parallel to each other.
+For this assignment we were tasked with creating a shoe sized box to hold our class items. This project started a little challenging for me because I had issues with my laptop. I quickly realized that the laptop I had gotten was lacking a bit in processing power to properly use the CAD software. Thankfully I was able to use my desktop Mac instead. The CAD software was pretty easy to install and the tutorial provided by Nathan gave me a straight forward process on how to build my box on fushion 360. I had also took notes during class that gave me some reference material that came in handy later.
+
+Using Nathans tutorial I set out to build my first box. Using the parameter settings made it easy to adjust the sizes. One initial issue I had was getting the right side of the box to turn blue in the CAD software. When it doesn’t turn blue when you hover over a section it means that the box is not fully enclosed. I went to open lab and worked with Bobby to remedy the issue. The issue was an incorrect setting when I went to expand the box.
+
+After this issue was remedied I use the mirror function to create separate mirror points. I learned that when you hover your mouse over the middle of the box it will turn into a “triangle” this triangle means that you are at the center. After creating the mirror points I was able to mirror the sides of the box over. 
+
+<p class="margin">   </p>
+
+
 
 <p class="margin">   </p>
 <div class="flexrow">
-  <img src="./tilemath2.jpeg" alt="geometric diagrams drawn in chalk on a blackboard">
+  <img src="./tilemath2.jpeg" alt="Fushion 360 diagram of cardboard box">
 </div>
-<p class="caption">Some early sketches I did to help conceptualize the phone stand idea.</p>
+<p class="caption">Fushion Diagram</p>
 
-One trip to the laser cutter later, I realized this first attempt was not a
-success, and that indeed I was way overthinking the prompt. I decided to change
-ideas entirely, althogh I liked the idea of being able to stack parallel tiles.
-My next idea was for a more sculptural piece, where a central body of parallel
-tiles (now circular) could be held up on feet of some kind. Initially, this idea
-also used two tile types, but eventually I decided to opt for the tried-and-true
-method of doing a simpler thing better rather than doing a more complex thing
-worse, so I cut it down to a single circular tile design.
+<p class="margin">   </p>
+Once I felt happy with the box it was time to export the box. This is where I ran into another issue. I initially exported the document by going to file -> export. For some reason when exporting this way my dimensions would not properly show up when I put the file into Rhino. Bobby showed me the proper way to export by right clicking the sketch and exporting as dxf. I put the file on the thumb drive and imported into the Rhino computer next to the laser cutter. My sketch showed up with the right dimensions. Unfortunately, I had duplicate lines which through off my kerf. This kept my box from properly closing. To fix the issue I used the explode function on rhino as well as the “dup” function to find and delete all of the duplicate lines. Once all of the duplicate lines were deleted I changed the layers of various lines. I set the inner rectangle line to the etch layer and the outside lines to the cut layer. I then used ctrl p to verify the lay out and move the file to the laser cut software. Once the software was up and running I turned on the laser cuter and put in a piece of cardboard. Once the cardboard was in the cutter I used the software to move the laser to the outer boundaries of my template to make sure there was enough cardboard for my box. After this was done I chose med board from the cut settings and turned up the power of the etch to about 14% to ensure the laser would cut enough cardboard away for the box to fold properly. After this I sent the file to be lasered. The box came out as expected except one part of the box was double cut by the laser and it would not close properly in the fingers. I ended up having to use tape to get one side of the box to close.
+<p class="margin">   </p>
 
 <p class="margin">   </p>
 <div class="flexrow">
-  <img src="./tiles1_scale.jpeg" alt="several small cardboard tiles on a laptop computer">
+  <img src="./tilemath2.jpeg" alt="Cardbord rectangular box">
 </div>
-<p class="caption">A photo of the original tile designs, on my 13" laptop for scale.</p>
-
-For most of the tile connections, a standard reciprocal-notch design would
-provid a lot of stability, so I added notches around the circle's edge. I also
-thought it would be cool if I could sandwich a tile between two others, so I
-added notches entirely internal to the area of the circle. I wasn't sure what
-kind of symmetry would work best, so I made two versions: one with 4 edge
-notches and two center notches (to allow for center connections of either
-orientation), and the other with 3 edge notches and a single center notch offset
-from the actual center of the circle.
-
-<p class="margin">   </p>
-<div class="flexrow">
-  <img src="./tiles2_sketch.png" alt="screenshot of Fusion 360 with sketches of two circular tiles.">
-</div>
-<p class="caption">The sketch I made in Fusion 360 for version 2 of the tiles.</p>
-
-I printed this first iteration of the circles and made three discoveries. First,
-my notches didn't have enough tolerance, so the tiles were too hard to fit
-together. Second, the central notches were a little too narrow for a secure
-hold. And third, I liked the 3-way tile design better than the 4-way design.
-
-Finally, I was narrowing in on a final iteration. The center notches had
-originally been the same size as the connections formed with the edge notches,
-but now I made them 5mm longer, and I upped the material thickness from 4mm to
-5mm to ease the fit of the connections. A quick laser cut trial showed that the
-new center notch size was much better, but that the connections were now too
-loose, so I cut the material thickness back down to 4.5mm.
-
-<p class="margin">   </p>
-<div class="flexrow">
-  <img src="./tiles2_3.jpeg" alt="3 kinds of circular cardboard tiles on a table.">
-  <img src="./tiles_cutting.gif" alt="a laser cutter cutting an array of circular tiles out of cardboard." width="50%">
-</div>
-<p class="caption">Left: Both designs of version 2, plus the improved version 3 tiles with the larger center notch. Right: a gif of the laser cutter printing the final batch of tiles.</p>
-
-Finally, I printed out a bunch of my circular tokens, and had fun fitting them
-together! I was able to create a few interesting-looking sculptures, and I found
-that the pliability of the cardboard meant I could fudge the geometry just
-enough to make an interesting kind of low stand that could be used as a rest
-for a spherical or other oddly-shaped object.
-
-<p class="margin">   </p>
-<div class="flexrow">
-  <img src="./sculptures1.jpeg" alt="two cardboard sculptures that look kind of like people.">
-  <img src="./sculptures4.jpeg" alt="two identical cardboard sculptures reminiscent of TIE fighters from Star Wars.">
-  <img src="./sculptures9.jpeg" alt="a small cardboard stand.">
-</div>
-<div class="flexrow">
-  <img src="./sculptures5.jpeg" alt="top-front view of a large abstract cardboard sculptures.">
-  <img src="./sculptures6.jpeg" alt="top view of the same sculpture, showing its rotational symmetry.">
-</div>
-<p class="caption">Top: some of the smaller sculptures I made out of my tiles, plus the low stand. Bottom: two views of the larger sculpture I made with more of the tiles.</p>
-
-If I were to make another iteration of this, I would do some more testing of
-center notch arrangements to see if I could get a design with more options for
-center connections, and I would experiment with printing these tiles in various
-sizes for increased design flexibility.
+<p class="caption">Final Box</p>
 
 
 <p class="margin">   </p>
