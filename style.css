@@ -65,6 +65,10 @@ nav {
   color: #EEE7E8;
   transition: 0.3s;
 }
+.half-size {
+  width: 50%;
+  height: auto;
+}
 
 #btn:hover {
   border: 3px inset #E3165B;
