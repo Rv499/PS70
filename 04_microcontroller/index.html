@@ -25,90 +25,82 @@
 
 <h3>Week 4: Microcontroller Programming</h3>
 
-<p class="margin">   </p>
-<div class="flexrow">
-  <a id="btn" href="wk4.zip" download>Download my code and CAD files from this week!
-  </a>
-</div>
+
 <p class="margin">   </p>
 
 <h4>Assignment: Make an Arduino Do Something</h4>
 
-For this week, I wanted to have my Arduino control the movement of my kinetic
-sculpture. First, I had to make some edits to my sculpture so that it would
-actually work. This entailed modifying the gears to attach them to the motor and
-the rest of the sculpture and fabricating a new stand to mount the sculpture on.
+For this week, we were tasked with making our Arduino do someething. I orignally wanted to use a light sensor to control a motor with Arduino. I was unable to get this to work so I shifted gears and used a button to contorl the start and stop of a motor. Lets first start by talking about my orginal task and what I did and where I think I might have went wrong. For the wiring I used the wiring diagram that we learned in class (https://nathanmelenbrink.github.io/lab/arduino/L9110.html) and used a breadboard to seperate the current (ground on one side and power on the other) by the photo resistor. I was only focused on using one motor so I chose pin 3 to connect directly to motor A1-A on the the L9110. Once I uploaded the code the motor would run regardless of the amount of light that was present. The step where I think I went wrong was not configuring the code to provide a feedback value to the arduino. I think this would have allowed the ardunio to know the amount of light and then run the loop. My thought process was that the photo resistor would provide enough resistance that without light the resistance would be enough to stop the motor from spinning. 
 
 <p class="margin">   </p>
 <div class="flexrow">
-  <img src="./newbase.png" alt="a 3D model of a disassembled cardboard stand">
+  <img src="./Photo_Board.jpg" alt=" Adruino connected to a breadboard and motor" width="75%">
 </div>
-<p class="caption">The re-designed cardboard stand, including notches at the bottom for a shelf to hold the motor.</p>
+<p class="caption">Here is a picture of the failed attempt.</p>
 
-Once those were printed and assembled, I was able to test the sculpture with my
-motor. I ran into some problems with friction -- at first, I had tightened the
-various axles and hinges of my sculpture too much, so the motor couldn't turn the
-gears at all. Next, the shelf I had made for the motor to sit in was causing friction
-and preventing the motor from turning. Once I fixed both of those problems, I found
-another issue, which was that I was having trouble fixing the center axle to
-the center gear on the far side, so the motor was only turning one side of the
-sculpture. I decided to leave that problem for another day, and focused on getting
-the motor to work with one side of the sculpture. Eventually, I succeeded, although
-I had to hold the motor in place:
+When this failed I didnt think about the code and was thinking about the photoresister not stopping enough current. This lead me to use a button because I knew the current flow would be 0 if the button was not pushed. I replaced the photo resistor with a button. 
 
 <p class="margin">   </p>
 <div class="flexrow">
-  <img src="./panthergif.gif" alt="a cardboard panther that looks like it's running">
+  <img src="./Button_Board.jpg" alt=" Adruino connected to a breadboard and motor with button">
 </div>
-<p class="caption">It lives!</p>
+<p class="caption">Button in bread board.</p>
 
-Now I could add in the Arduino part. I hooked up a simple circuit with my Arduino
-Uno, my motor, a motor controller, and a few wires, and wrote a simple program to
-supply power to the motor:
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./Drawing.jpg" alt=" schematic" width="95%">
+</div>
+<p class="caption">Here is the schematic.</p>
+
+
+<p class="margin">   </p>
+
+
+Sadly after this change I still had an issue. Here is the code I started with. I started with the code we learned in class (https://nathanmelenbrink.github.io/lab/arduino/L9110.html). The original code included a delay which made it impossible to know when the button would cause the motor to work. 
+<p class="margin">   </p>
+
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./Old_Code.png" alt=" Adruino code" width="95%">
+</div>
+<p class="caption">Here is a screenshot of the origninal code being uploaded in Arduino.</p>
+
+<p class="margin">   </p>
+
+I modified the code since I was only using 1 motor (A) and did not need a delay becaause the botton would controll the motor. I kept the A motor in the Low position and deleted the B motor and delay.
 
 <pre><code style="background-color: #2d2b33;">
-  const int A1A = 3;  // define pin 3 for A-1A 
-  const int A1B = 5;  // define pin 4 for A-1B 
+    const int A1A = 3; // define pin 3 for A-1A
 
   void setup() {
-    pinMode(A1A, OUTPUT);     // specify these pins as outputs
-    pinMode(A1B, OUTPUT);
-    digitalWrite(A1A, LOW);   // start with the motors off 
-    digitalWrite(A1B, LOW);
+
+  pinMode(A1A, OUTPUT); // specify these pins as outputs
+
+  digitalWrite(A1A, LOW); // start with the motors off
+
   }
 
   void loop() {
-    // start the motor 
-    digitalWrite(A1A, HIGH);   
-    digitalWrite(A1B, LOW);
+
+  // start the motor
+
+  digitalWrite(A1A, LOW);
+
   }
+
 </code></pre>
 
-I figured out that I had to reverse the direction of the motor to make the panther's
-running motion go the right way, so I flipped pin A1-B to do that and then also
-added some delay functions to create a pattern of motion. Here's a video of the
-result:
 
 <p class="margin">   </p>
 <div class="flexrow">
   <video controls>
-    <source src="./panther-vid.mov" type="video/mp4">
+    <source src="./Button.mov" type="video/mp4" width="25%">
   </video>
   </div>
-<p class="caption">The panther running on a timed delay.</p>
+<p class="caption">Button controlling motor.</p>
 
-Lastly, I went back and added a potentiometer to my circuit to adjust the speed
-the panther runs at. The motor is still not held in place well, so if I were to
-come back to this design I would rethink the motor housing so it doesn't have to
-be held in place.
 
-<p class="margin">   </p>
-<div class="flexrow">
-  <video controls>
-    <source src="panther_nice.mov" type="video/mp4">
-  </video>
-  </div>
-<p class="caption">The final result (so far).</p>
+
 
 </div>
 </xmp>
