@@ -60,13 +60,6 @@ This project has had some changes since I have started the course. My orignal id
 
 <p class="margin"></p>
 
-**Design**
-
-
-- a strap or braclet
-  - start with PLA for protoype
-  - Final product: PETG (Polyethylene Terephthalate Glycol)
-
 
 <p class="margin"></p>
 
@@ -97,9 +90,40 @@ The prototyping phase of this started when we learned about input devices. This 
 <p class="margin"></p>
 <p class="margin"></p>
 <h4>Phase 4: Assembly</h4>
-
+Hardware Components
+ESP32 Microcontroller: Chosen for its WiFi capabilities and compatibility with a variety of sensors.
+Pulse Sensor: A simple heart rate sensor used to monitor the heart rate in real-time.
+OLED Display: Used to provide immediate feedback and display the journal prompts generated based on the heart rate data.
+Connecting Wires: For establishing connections between the ESP32, the pulse sensor, and the OLED display.
+Software Components
+Arduino IDE: Used for programming the ESP32.
+Adafruit SSD1306 Library: For controlling the OLED display.
+PulseSensor Playground Library: For interfacing with the pulse sensor.
+WiFi and ChatGPT Libraries: To connect to the internet and interact with the ChatGPT API.
 <p class="margin"></p>
-**Coming soon**
+Development Process and Challenges
+Initial Assembly and Sensor Integration
+
+The initial phase involved connecting the pulse sensor to the ESP32 and displaying the heart rate data on the OLED screen. This straightforward setup served as the foundation for the more complex features that would be added later.
+
+Venturing into EEG
+
+Mid-project, there was an attempt to incorporate EEG sensors to provide a more comprehensive view of the user's emotional state by reading brain waves. However, integrating EEG sensors proved to be significantly more complex and required additional time for calibration and interpretation of the data. Due to these complexities, the project scope was refocused back to using just the heart rate sensor.
+
+Pin Configuration Challenges
+
+A major issue arose when trying to read the heart rate data on the ESP32, which initially did not work as smoothly as it had on the Arduino. After some investigation, it was discovered that not all pins on the ESP32 are capable of reading analog input. Switching the sensor input to a correct analog-capable pin resolved this issue.
+
+Integration with ChatGPT
+
+Connecting the ESP32 to the ChatGPT API initially resulted in errors, which were later identified as issues related to API access permissions. It became clear that a paid API subscription was necessary to use ChatGPT effectively, after which the integration proceeded without further issues.
+
+Display Issues
+
+The OLED display initially did not function, which was eventually traced back to a hardware fault. Replacing the broken monitor resolved this problem, allowing the display of the heart rate and journal prompts. Additionally, there was an issue with the amount of text being displayed. The feedback from ChatGPT often exceeded the display capacity of the OLED screen, necessitating a modification to the code to truncate responses to 100 characters.
+
+Conclusion
+This project demonstrated the feasibility of combining physiological data with AI-generated content to create a responsive and interactive device. While there were several challenges, such as hardware limitations and the need for a paid API, each was overcome through systematic troubleshooting and adjustments.
 
 
 </div>
