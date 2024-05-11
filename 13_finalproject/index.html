@@ -101,29 +101,32 @@ Adafruit SSD1306 Library: For controlling the OLED display.
 PulseSensor Playground Library: For interfacing with the pulse sensor.
 WiFi and ChatGPT Libraries: To connect to the internet and interact with the ChatGPT API.
 <p class="margin"></p>
-Development Process and Challenges
-Initial Assembly and Sensor Integration
+Development Challenges and Solutions
+Sensor Integration
 
-The initial phase involved connecting the pulse sensor to the ESP32 and displaying the heart rate data on the OLED screen. This straightforward setup served as the foundation for the more complex features that would be added later.
+Initially, I faced challenges with getting the pulse sensor to function correctly with the ESP32, an issue that did not occur with the Arduino platform. This was primarily due to the ESP32’s particular analog pin requirements, which I resolved by adjusting the sensor connection to an appropriate pin that supports analog inputs. I used a pin diagram to discover the potential inputs. I ended up settiling on pin 15
 
-Venturing into EEG
+Incorporating ChatGPT
 
-Mid-project, there was an attempt to incorporate EEG sensors to provide a more comprehensive view of the user's emotional state by reading brain waves. However, integrating EEG sensors proved to be significantly more complex and required additional time for calibration and interpretation of the data. Due to these complexities, the project scope was refocused back to using just the heart rate sensor.
-
-Pin Configuration Challenges
-
-A major issue arose when trying to read the heart rate data on the ESP32, which initially did not work as smoothly as it had on the Arduino. After some investigation, it was discovered that not all pins on the ESP32 are capable of reading analog input. Switching the sensor input to a correct analog-capable pin resolved this issue.
-
-Integration with ChatGPT
-
-Connecting the ESP32 to the ChatGPT API initially resulted in errors, which were later identified as issues related to API access permissions. It became clear that a paid API subscription was necessary to use ChatGPT effectively, after which the integration proceeded without further issues.
+Integrating the ESP32 with the ChatGPT API initially led to multiple errors. After some troubleshooting, I discovered that these were linked to API access issues, which were resolved by opting into loading funds into my account, allowing uninterrupted access to ChatGPT services.
 
 Display Issues
 
-The OLED display initially did not function, which was eventually traced back to a hardware fault. Replacing the broken monitor resolved this problem, allowing the display of the heart rate and journal prompts. Additionally, there was an issue with the amount of text being displayed. The feedback from ChatGPT often exceeded the display capacity of the OLED screen, necessitating a modification to the code to truncate responses to 100 characters.
+The OLED display initially did not operate as expected, which was later traced back to a faluty screen. Troubleshooting this took a lot longer than I expected since I didnt think having a bad screen was a potential issue. Replacing the defective unit promptly resolved this issue. Additionally, I adjusted the software to truncate ChatGPT responses to 100 characters, since I kept running into an issue with the journal prompts being too long on the OLED display
+
+Trying for EEG
+
+During the progression of this project, I explored the possibility of expanding the functionality by integrating EEG sensors instead of solely focusing on heart rate monitoring. I felth that there was better potential for EEG to provide deeper insights into cognitive states and emotional responses. However, the complexity of interpreting EEG data, coupled with the technical challenges of calibrating and accurately processing the signals, proved to be significant obstacles. Depsite different efforts the EEG integration did not materialize as hoped. One of the first issues I ran into was not having enough analogu inputs. Next there was an issue with noise on the few sensors i was able to connect. The idea was to try a few sensors and if i could get that to work I could then try and use multiple ESP 32 to add more sensors. Sadly I was not able to make sense of the noise in the data to make it useful. I decided to refocus on optimizing the heart rate sensor setup. I think this pivot taught me the importance of setting realistic scopes for project phases and recognizing when to streamline focus in response to technical feedback. Looking back I would have shfited focus back to the heart rate alot sooner.
+
+Code
+For the code I wanted to divide up the heart rate into several large sections. The idea was that these blocks of heart rate would be best able to determine someones mental state. Heart rate is not the best indication but its a good start for someone wanting to get into journaling. The code is set up that if someones heart rate goes about 120 the prompt will come back with breathing exercises to help the person calm down.
 
 Conclusion
-This project demonstrated the feasibility of combining physiological data with AI-generated content to create a responsive and interactive device. While there were several challenges, such as hardware limitations and the need for a paid API, each was overcome through systematic troubleshooting and adjustments.
+This project taught me many things about device planning and integration. Before this course I did not know anything about ESP32 or how to code them. It has been exciting to be able to expand each week on my knowledge on topoics. 
+
+Future Directions
+Going forward, I do plan to revisit the possibility of incorporating EEG sensors to enhance the device’s functionality to help offer a more comprehensive analysis of physiological and emotional states. Additionally, improving the user interface, possibly through more interactive components like touchscreens, could make the device more user-friendly and engaging.
+
 
 
 </div>
